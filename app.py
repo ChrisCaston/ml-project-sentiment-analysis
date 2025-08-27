@@ -19,7 +19,11 @@ def analyze_sentiment(text):
     with torch.no_grad():
         logits = model(**inputs).logits
     predicted_class_id = logits.argmax().item()
-    return model.config.id2label[predicted_class_id]
+    score = torch.softmax(logits, dim=1)[0][predicted_class_id].item()
+    return {
+        "label": model.config.id2label[predicted_class_id],
+        "score": round(score, 4)
+    }
 
 @app.get("/sentiment")
 def get_sentiment(text: str, api_key: str):

@@ -48,7 +48,8 @@ The API requires a secret key for authentication. You will need to set up a `.en
 
 Once configured, you can start the API using Uvicorn.
 
-uvicorn app:app --reload --port 8000
+export SECRET_API_KEY=your_actual_api_key
+uvicorn app:app --host 0.0.0.0 --port 10000
 
 
 ---
@@ -57,7 +58,11 @@ uvicorn app:app --reload --port 8000
 
 Once the server is running, you can call the API by visiting a URL in your browser or using a tool like `curl`.
 
-**URL:** `http://127.0.0.1:8000/sentiment?text=Your_text_here&api_key=your_api_key`
+**URL:** `http://localhost:10000/sentiment?text=Your_text_here&api_key=Your_api_key_here`
 
 * Replace `Your_text_here` with the text you want to analyze.
 * Replace `your_api_key` with the secret key you set in your `.env` file.
+
+Or you can use this url from fastapi.
+
+**URL:** 'http://0.0.0.0:10000/docs'

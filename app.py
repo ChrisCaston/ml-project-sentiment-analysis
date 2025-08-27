@@ -1,29 +1,21 @@
-import torch
-from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
+from textblob import TextBlob
 from fastapi import FastAPI
-import uvicorn
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 secret_key = os.getenv("SECRET_API_KEY")
-
 if secret_key is None:
     raise ValueError("SECRET_API_KEY environment variable not set")
 
-tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
-model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
-
 app = FastAPI()
 
-def analyze_sentiment(text):
-    inputs = tokenizer(text, return_tensors="pt")
-    with torch.no_grad():
-        logits = model(**inputs).logits
-    predicted_class_id = logits.argmax().item()
-    score = torch.softmax(logits, dim=1)[0][predicted_class_id].item()
-    return {
-        "label": model.config.id2label[predicted_class_id],
-        "score": round(score, 4)
-    }
+def analyze_sentiment(text: str):
+    blob = TextBlob(text)
+    polarity = round(blob.sentiment.polarity, 3)  # -1 (negative) → 1 (positive)
+    label = "POSITIVE" if polarity > 0 else "NEGATIVE" if polarity < 0 else "NEUTRAL"
+    return {"label": label, "score": polarity}
 
 @app.get("/sentiment")
 def get_sentiment(text: str, api_key: str):

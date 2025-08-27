@@ -1,7 +1,7 @@
-# 🚀 Simple Sentiment Analysis API
+# 🚀 Sentiment Analysis API
 
-A lightweight REST API that uses **TextBlob** to perform sentiment analysis (positive, negative, or neutral) on a given text.  
-Built with **FastAPI** and deployed to **Render**.
+A production-ready REST API that uses Hugging Face’s **DistilBERT** model (fine-tuned on SST-2) to perform sentiment analysis (positive/negative) on text.  
+Built with **FastAPI**, deployed on **Render**, and secured with an API key.
 
 ---
 
@@ -22,7 +22,7 @@ Example response:
 {
   "sentiment": {
     "label": "POSITIVE",
-    "score": 0.5
+    "score": 0.9987
   }
 }
 ```
@@ -52,11 +52,6 @@ Example response:
 3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
-   ```
-
-4. **Download TextBlob data (run once):**
-   ```bash
-   python -m textblob.download_corpora
    ```
 
 ---
@@ -96,16 +91,15 @@ Then visit:
 ## 🛠 Tech Stack
 - **Python**
 - **FastAPI** for REST API
-- **TextBlob** for sentiment analysis
-- **Render** (deployment platform)
+- **Hugging Face Transformers** (DistilBERT sentiment model)
+- **PyTorch** as the deep learning backend
+- **Render** for deployment
 
 ---
 
 ## 📊 About the Sentiment Score
-- Scores range from **-1.0 → 1.0**  
-  - **Negative** (e.g., -0.8) = negative sentiment  
-  - **Zero** (0.0) = neutral  
-  - **Positive** (e.g., 0.5) = positive sentiment  
+- Returns a **label** (`POSITIVE` or `NEGATIVE`)  
+- Returns a **confidence score** (0 → 1) using softmax probabilities  
 
 ---
 

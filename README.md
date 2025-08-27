@@ -49,6 +49,7 @@ The API requires a secret key for authentication. You will need to set up a `.en
 Once configured, you can start the API using Uvicorn.
 
 export SECRET_API_KEY=your_actual_api_key
+
 uvicorn app:app --host 0.0.0.0 --port 10000
 
 

@@ -1,4 +1,42 @@
-.env
-.vscode/
+# -------------------------
+# Python
+# -------------------------
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+
+# -------------------------
+# Virtual environments
+# -------------------------
+.venv/
+venv/
+ENV/
+env/
+
+# -------------------------
+# Environment variables
+# -------------------------
+.env
+
+# -------------------------
+# Logs and temp files
+# -------------------------
+*.log
+*.tmp
+*.swp
+
+# -------------------------
+# IDE / editor settings
+# -------------------------
+.vscode/
+.idea/
+
+# -------------------------
+# OS system files
+# -------------------------
 .DS_Store
+Thumbs.db

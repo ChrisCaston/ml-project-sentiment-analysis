@@ -1,20 +1,20 @@
 # 🚀 Sentiment Analysis API
 
-A production-ready REST API that uses Hugging Face’s **DistilBERT** model (fine-tuned on SST-2) to perform sentiment analysis (positive/negative) on text.  
+A production-ready REST API that uses Hugging Face’s **DistilBERT** model (fine-tuned on SST-2) with **PyTorch** to perform sentiment analysis (positive/negative) on text.  
 Built with **FastAPI**, deployed on **Render**, and secured with an API key.
 
 ---
 
 ## 🌐 Live Demo
-- **Swagger UI**: [https://your-render-url.onrender.com/docs](https://your-render-url.onrender.com/docs)  
+- **Swagger UI**: [https://sentiment-analysis-api-w0p4.onrender.com/docs](https://sentiment-analysis-api-w0p4.onrender.com/docs)  
 - **Endpoint**:  
   ```
-  https://your-render-url.onrender.com/sentiment?text=I%20love%20this!&api_key=YOUR_SECRET_API_KEY
+  https://sentiment-analysis-api-w0p4.onrender.com/sentiment?text=I%20love%20this!&api_key=YOUR_SECRET_API_KEY
   ```
 
 Example request (with `curl`):
 ```bash
-curl "https://your-render-url.onrender.com/sentiment?text=I%20love%20this!&api_key=YOUR_SECRET_API_KEY"
+curl "https://sentiment-analysis-api-w0p4.onrender.com/sentiment?text=I%20love%20this!&api_key=YOUR_SECRET_API_KEY"
 ```
 
 Example response:
@@ -91,7 +91,7 @@ Then visit:
 ## 🛠 Tech Stack
 - **Python**
 - **FastAPI** for REST API
-- **Hugging Face Transformers** (DistilBERT sentiment model)
+- **Hugging Face Transformers** (DistilBERT model)
 - **PyTorch** as the deep learning backend
 - **Render** for deployment
 

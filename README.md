@@ -1,11 +1,11 @@
-# 🚀 Sentiment Analysis API
+# Sentiment Analysis API
 
 A production-ready REST API that uses Hugging Face’s **DistilBERT** model (fine-tuned on SST-2) with **PyTorch** to perform sentiment analysis (positive/negative) on text.  
 Built with **FastAPI**, deployed on **Render**, and secured with an API key.
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
 - **Swagger UI**: [https://sentiment-analysis-api-w0p4.onrender.com/docs](https://sentiment-analysis-api-w0p4.onrender.com/docs)  
 - **Endpoint**:  
   ```
@@ -29,7 +29,7 @@ Example response:
 
 ---
 
-## ⚙️ Setup and Installation
+## Setup and Installation
 
 1. **Clone the repository:**
    ```bash
@@ -56,7 +56,7 @@ Example response:
 
 ---
 
-## 🔑 Configuration
+## Configuration
 
 The API requires a secret key for authentication.
 
@@ -72,7 +72,7 @@ The API requires a secret key for authentication.
 
 ---
 
-## ▶️ Running the API Locally
+## Running the API Locally
 
 Start the API using Uvicorn:
 ```bash
@@ -88,7 +88,7 @@ Then visit:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 - **Python**
 - **FastAPI** for REST API
 - **Hugging Face Transformers** (DistilBERT model)
@@ -97,11 +97,11 @@ Then visit:
 
 ---
 
-## 📊 About the Sentiment Score
+## About the Sentiment Score
 - Returns a **label** (`POSITIVE` or `NEGATIVE`)  
 - Returns a **confidence score** (0 → 1) using softmax probabilities  
 
 ---
 
-## 📄 License
+## License
 MIT
